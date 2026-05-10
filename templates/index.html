@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Tolkāppiyam Knowledge Graph</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/research.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="header-title" data-i18n="app_title">Tolkāppiyam Knowledge Graph</div>
+  <div class="header-ornament" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="container">
+
+  <aside>
+    <div class="panel-section">
+      <div class="panel-label" data-i18n="panel_query">Query</div>
+      <input id="query" data-i18n-placeholder="query_placeholder" placeholder="e.g., Kurinji thinai" autocomplete="off" spellcheck="false">
+      <button onclick="sendQuery()" data-i18n="query_button">Query Knowledge Graph</button>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-label" data-i18n="panel_search_node">Search Node</div>
+      <input id="searchNode" data-i18n-placeholder="search_placeholder" placeholder="Search node name…" autocomplete="off">
+      <button onclick="searchNodeByName(document.getElementById('searchNode').value)" data-i18n="find_node_button">Find Node</button>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-label" data-i18n="panel_legend">Legend</div>
+      <div class="legend-item"><span class="legend-swatch thinai"></span><span data-i18n="legend_thinai">Thinai</span></div>
+      <div class="legend-item"><span class="legend-swatch akam"></span><span data-i18n="legend_akam">Akam</span></div>
+      <div class="legend-item"><span class="legend-swatch puram"></span><span data-i18n="legend_puram">Puram</span></div>
+      <div class="legend-item"><span class="legend-swatch grammar"></span><span data-i18n="legend_grammar">Grammar</span></div>
+      <div class="legend-item"><span class="legend-swatch ethics"></span><span data-i18n="legend_ethics_culture">Ethics / Culture</span></div>
+    </div>
+
+    <div class="panel-section" id="analyticsPanel">
+      <div class="panel-label" data-i18n="panel_graph_analytics">Graph Analytics</div>
+
+      <div class="analytics-grid">
+        <div class="stat">
+          <div class="stat-k" data-i18n="stat_nodes">Nodes</div>
+          <div class="stat-v" id="statNodes">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k" data-i18n="stat_relations">Relations</div>
+          <div class="stat-v" id="statLinks">—</div>
+        </div>
+        <div class="stat stat-wide">
+          <div class="stat-k" data-i18n="stat_selected_degree">Selected node degree</div>
+          <div class="stat-v" id="statDegree">—</div>
+          <div class="stat-sub" id="statDegreeLabel" data-i18n="stat_no_node_selected">No node selected</div>
+        </div>
+      </div>
+
+      <div class="dist-title" data-i18n="category_distribution">Category distribution</div>
+      <div id="categoryDist" class="dist-list"></div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="graph-header">
+      <div class="graph-title" data-i18n="graph_title">Knowledge Graph</div>
+      <div class="graph-controls">
+         <button id="openGuideModal" class="lang-btn guide-btn" type="button" data-i18n-title="guide_button_title" title="Tamil Arivu Guide">
+          <span class="lang-btn-icon" aria-hidden="true">🗣</span>
+          <span class="lang-btn-label" data-i18n="guide_button">Tamil Arivu Guide</span>
+        </button>
+        <button id="exportPdfBtn" class="ctrl-btn ctrl-btn-text" onclick="exportPdf()" data-i18n-title="export_pdf_title" title="Export to PDF">PDF</button>
+
+        <button class="ctrl-btn" onclick="resetView()" data-i18n-title="reset_view_title" title="Reset view">↻</button>
+      </div>
+    </div>
+
+    <div id="graph-container">
+      <div class="empty-state" id="initial-empty">
+        <div class="empty-state-icon" aria-hidden="true">◌</div>
+        <div class="empty-state-text" data-i18n="empty_graph_text">Run a query to render the graph</div>
+      </div>
+      <svg id="graph" style="position:absolute;inset:0;"></svg>
+    </div>
+
+    <div id="nodeModal" class="modal">
+      <div class="modal-content">
+        <button id="closeModal" aria-label="Close">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+        <div id="modalRelations"></div>
+      </div>
+    </div>
+
+    <div id="cognitiveModal" class="modal">
+      <div class="modal-content cognitive-modal">
+        <button id="closeCognitiveModal" aria-label="Close">&times;</button>
+        <h3 id="cognitiveTitle" data-i18n="cognitive_title">Cognitive Architecture</h3>
+        <div id="cognitiveSubtitle" class="modal-subtitle"></div>
+
+        <div class="cog-grid">
+          <div class="cog-card">
+            <div class="cog-card-title" data-i18n="core_dimensions">Core Dimensions</div>
+            <div id="cognitiveDimensions"></div>
+          </div>
+          <div class="cog-card">
+            <div class="cog-card-title" data-i18n="thinking_relations">Thinking Relations</div>
+            <div id="cognitiveRelations"></div>
+          </div>
+        </div>
+
+        <div id="cognitiveNote" class="cog-note"></div>
+      </div>
+    </div>
+
+    <div id="languageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="languageModalTitle">
+      <div class="modal-content language-modal">
+        <button id="closeLanguageModal" aria-label="Close">&times;</button>
+        <h3 id="languageModalTitle" data-i18n="language_modal_title">Translate this page</h3>
+        <div class="modal-subtitle" data-i18n="language_modal_subtitle">Choose a language. The UI and explanations will switch.</div>
+        <input id="languageSearch" class="lang-search" data-i18n-placeholder="language_search_placeholder" placeholder="Search languages…" autocomplete="off" spellcheck="false">
+        <div id="languageList" class="lang-list" aria-label="Language list"></div>
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <div class="section-head">
+      <div class="section-title" data-i18n="explanation_title">Explanation &amp; Insights</div>
+      <div class="section-actions">
+        <button id="openLanguageModal" class="lang-btn" type="button" data-i18n-title="language_button_title" title="Translate page">
+          <span class="lang-btn-icon" aria-hidden="true">🌐</span>
+          <span class="lang-btn-label" data-i18n="language_button">Language</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="meta">
+      <p style="color:var(--text-muted);font-style:italic;font-size:13px;margin:0;">
+        <span data-i18n="meta_help">Query the corpus to see the theme and canonical form.</span>
+      </p>
+    </div>
+
+    <div class="cognitive-controls" id="cognitiveControls" style="display:none;">
+      <button id="cognitiveBtn" class="btn-primary" type="button" data-i18n="view_cognitive_button">View Cognitive Architecture</button>
+    </div>
+
+    <div id="explanation">
+      <div class="empty-state" style="height:100%;min-height:120px;">
+        <div class="empty-state-icon" style="font-size:32px;opacity:0.25;" aria-hidden="true">ℹ</div>
+        <div class="empty-state-text" style="font-size:13px;" data-i18n="insights_empty">Insights will appear after a query.</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="guideModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+    <div class="modal-content guide-modal">
+      <button id="closeGuideModal" aria-label="Close">&times;</button>
+      <h3 id="guideModalTitle" data-i18n="guide_modal_title">Tamil Arivu Guide</h3>
+      <div id="guideModalSubtitle" class="modal-subtitle"></div>
+
+      <div class="guide-layout">
+        <div class="guide-character guide-male" aria-hidden="true">
+          <div class="guide-figure">
+            <img class="guide-img" referrerpolicy="no-referrer" loading="eager" decoding="async"
+              src="https://static.vecteezy.com/system/resources/previews/001/541/555/non_2x/indian-man-wearing-traditional-hindu-clothes-free-vector.jpg"
+              alt="Tamil Arivu Guide (male)">
+          </div>
+          <div class="guide-waves" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="guide-dialog">
+          <div id="guideDialog" class="guide-dialog-scroll" aria-live="polite"></div>
+          <div class="guide-dialog-actions">
+            <button id="guideVoiceToggle" class="btn-secondary" type="button">Voice</button>
+            <button id="guideReplay" class="btn-secondary" type="button" data-i18n="guide_replay">Replay</button>
+            <button id="guideRefresh" class="btn-secondary" type="button" data-i18n="guide_refresh">Refresh</button>
+          </div>
+        </div>
+
+        <div class="guide-character guide-female" aria-hidden="true">
+          <div class="guide-figure">
+            <img class="guide-img" referrerpolicy="no-referrer" loading="eager" decoding="async"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeWVP-CRDpfEE4AmFWL0ZQ_eoXob6_UwUAWg&amp;s"
+              alt="Tamil Arivu Guide (female)">
+          </div>
+          <div class="guide-waves" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/static/js/i18n.js"></script>
+<script src="/static/js/graph.js"></script>
+<script src="/static/js/research.js"></script>
+
+</body>
+</html>

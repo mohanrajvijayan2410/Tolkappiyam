@@ -1,0 +1,250 @@
+# Tolkappiyam AI: An Intelligent Classical Tamil Knowledge Agent
+
+Hosted Link: https://tholkapiyam2026.pythonanywhere.com/
+
+Tolkappiyam AI is an AI-assisted knowledge exploration platform built around the literary, grammatical, and cultural concepts of Tolkappiyam. It accepts natural-language queries in Tamil, English, or mixed input, maps them to ontology concepts, and renders an interactive knowledge graph with academic explanations, evidence metadata, cognitive views, translation support, and downloadable PDF reports.
+
+The project combines a Flask backend, a dataset-driven ontology layer, D3.js graph visualization, and LLM-backed reasoning through Gemini and Groq. It is designed as a full-stack showcase of AI-assisted knowledge retrieval for Classical Tamil studies.
+
+## Installation & Setup
+
+### Pre-requisites
+
+- Python 3.x
+- `pip`
+- Internet access for LLM/API calls
+- At least one Gemini or Groq API key
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd tolkappiyam-ai
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY_1=your_gemini_api_key
+GROQ_API_KEY_1=your_groq_api_key
+LLM_PROVIDER_ORDER=gemini,groq
+GEMINI_MODEL_NAME=models/gemini-2.5-flash
+GROQ_MODEL_NAME=llama-3.1-8b-instant
+LLM_REQUEST_TIMEOUT_SECONDS=45
+```
+
+Notes:
+
+- You can configure multiple keys such as `GEMINI_API_KEY_2`, `GROQ_API_KEY_2`, and so on.
+- Provider order is configurable through `LLM_PROVIDER_ORDER`.
+- If multiple keys are provided, the backend rotates keys and falls back between providers on failure.
+
+### 4. Run the Application
+
+```bash
+python backend/app.py
+```
+
+Open the app in your browser:
+
+```text
+http://127.0.0.1:5000/
+```
+
+## Sample Input and Output
+
+### Input
+
+```text
+Query: Kurinji thinai
+Language: both
+```
+
+### Output
+
+The system returns:
+
+- A detected theme such as `Thinai`
+- A canonical concept such as `Kurinji`
+- A focused ontology subgraph
+- An academic explanation in English and Tamil
+
+Example response shape:
+
+```json
+{
+  "theme": "Thinai",
+  "canonical": "Kurinji",
+  "graph": {
+    "nodes": [],
+    "links": [],
+    "meta": {
+      "start_nodes": ["Kurinji"],
+      "depth": 2
+    }
+  },
+  "explanation": "English Explanation: ... Tamil Explanation: ..."
+}
+```
+
+## Features
+
+- AI-powered theme classification for Tolkappiyam queries
+- Canonical query simplification aligned to Classical Tamil concepts
+- Ontology-based knowledge graph traversal from curated CSV datasets
+- Interactive graph exploration with node search, analytics, and hierarchy view
+- Academic explanation generation in English, Tamil, and other target languages
+- Translation endpoint for UI strings and explanatory content
+- Cognitive architecture generation for concept-level interpretive analysis
+- Evidence-aware node metadata including source section, sutra reference, and extracted sentence
+- Tamil Arivu Guide with dialog-style concept narration
+- PDF export containing graph snapshot, explanation, evidence, and cognitive summary
+- Gemini and Groq provider rotation with automatic fallback
+
+## Project Structure
+
+```text
+/tolkappiyam-ai
+|
+|-- backend/
+|   |-- app.py                    # Flask application entry point
+|   |-- client.py                 # Gemini/Groq provider routing and failover
+|   |-- config.py                 # Environment and model configuration
+|   |-- classifier.py             # Theme classification
+|   |-- simplifier.py             # Canonical query simplification
+|   |-- thol_preprocess.py        # Query normalization
+|   |-- ontology_mapper.py        # Ontology loading and subgraph generation
+|   |-- explanation_generator.py  # Academic explanation generation
+|   |-- cognitive_architecture.py # Cognitive view builder
+|   |-- guide_dialog.py           # Tamil Arivu Guide dialog generation
+|   |-- translator.py             # Multilingual translation
+|   |-- pdf_report.py             # PDF report export
+|   `-- sutra_evidence.py         # Evidence inference helpers
+|
+|-- data/
+|   |-- Ontology.csv              # Core ontology concepts and relations
+|   `-- Query_Mapping.csv         # Thinai and concept mapping dataset
+|
+|-- static/
+|   |-- css/
+|   `-- js/
+|
+|-- templates/
+|   `-- index.html                # Main web interface
+|
+|-- requirements.txt
+`-- README.md
+```
+
+## How It Works
+
+1. The user submits a query from the web interface.
+2. The backend preprocesses the query using Tolkappiyam-aware normalization.
+3. An LLM classifies the query into a primary domain such as `Akam`, `Puram`, `Thinai`, `Sol`, or `Ezhuthu`.
+4. The query is simplified into a canonical Tolkappiyam-aligned concept.
+5. The ontology engine resolves the best matching node and builds a focused subgraph from `Ontology.csv`.
+6. The explanation generator produces an academic explanation in the selected language.
+7. Optional modules generate cognitive architecture, translation output, guide dialog, or a PDF research report.
+
+## API Endpoints
+
+### `POST /query`
+
+Generates the main knowledge-graph response.
+
+Payload:
+
+```json
+{
+  "query": "Kurinji thinai",
+  "language": "both",
+  "depth": 2
+}
+```
+
+Returns:
+
+- `theme`
+- `canonical`
+- `graph`
+- `explanation`
+
+### `POST /cognitive`
+
+Builds a concept-level cognitive architecture summary.
+
+Payload:
+
+```json
+{
+  "concept": "Kurinji",
+  "theme": "Thinai",
+  "canonical": "Kurinji"
+}
+```
+
+### `POST /translate`
+
+Translates short UI or explanation strings.
+
+Payload:
+
+```json
+{
+  "target": "ta",
+  "source": "English",
+  "texts": ["Concept Meaning", "Literary Context"]
+}
+```
+
+### `POST /guide/dialog`
+
+Returns a dialog-style explanation for the Tamil Arivu Guide.
+
+Payload:
+
+```json
+{
+  "concept": "Kurinji",
+  "query": "Kurinji thinai",
+  "theme": "Thinai",
+  "canonical": "Kurinji",
+  "language": "en"
+}
+```
+
+### `POST /export/pdf`
+
+Exports the current graph, explanation, and cognitive summary as a PDF report.
+
+## Deployment
+
+The live application is available at:
+
+https://tholkapiyam2026.pythonanywhere.com/
+
+This project can be deployed on platforms such as:
+
+- PythonAnywhere
+- Render
+- Any VPS or Python-compatible hosting environment
+
+Make sure your hosting environment includes:
+
+- The required Python dependencies
+- The `.env` configuration
+- Access to the `data/`, `static/`, and `templates/` directories
+
+## Notes
+
+- The app supports Tamil, English, and multilingual UI/explanation flows.
+- If Tolkappiyam-specific normalization is unavailable, the backend safely falls back to raw user input.
+- Actual explanation content may vary depending on the configured LLM provider and available evidence metadata.
