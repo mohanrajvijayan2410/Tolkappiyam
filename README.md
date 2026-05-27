@@ -94,31 +94,42 @@ Example response shape:
   "explanation": "English Explanation: ... Tamil Explanation: ..."
 }
 ```
-**Architecture**
+## Architecture Workflow
 
-The proposed architecture follows a four-layer workflow for AI-driven literary knowledge exploration:
+The system architecture is organized into four major layers:
 
-1.**Graph Processing and Subgraph Extraction Layer**
-  -Preprocesses the user queries.
-  -Identifies important domain concepts from the input.
-  -Converts concepts into a canonical (standardized) form.
-  -Maps the extracted concepts to structured semantic data stored in CSV format.
-  -Extracts relevant subgraphs from the knowledge base.
-2.**Ontology Mapping and Reasoning Layer**
-  -Performs natural language understanding of the query.
-  -Detects user intent and semantic meaning.
-  -Aligns concepts with the ontology structure.
-  -Traverses the knowledge graph to identify the most relevant concept paths and relationships.
-3.**Cognitive Reasoning and Weightage Calculation Layer**
-  -Extracts contextual subgraphs related to the query.
-  -Computes graph centrality measures to determine concept importance.
-  -Assigns semantic weights to nodes and relationships.
-  -Supports importance-aware reasoning for accurate knowledge interpretation.
-4.**Visualization and Explanation Layer**
-  -Converts the weighted graph into bilingual human-readable output.
-  -Links concepts and relationships with corresponding sutra references.
-  -Computes analytical insights and summaries.
-  -Renders the final interactive graph-based visualization interface.
+1. **Graph Processing and Subgraph Extraction**
+
+   * preprocessing of user queries
+   * identification of literary and domain concepts
+   * canonical transformation of extracted terms
+   * mapping concepts into structured semantic CSV data
+   * extraction of relevant contextual subgraphs
+
+2. **Ontology Mapping and Semantic Reasoning**
+
+   * natural language understanding of user input
+   * intent detection and semantic interpretation
+   * ontology alignment and concept mapping
+   * knowledge graph traversal for relevant relationship discovery
+   * identification of optimal concept paths
+
+3. **Cognitive Reasoning and Weightage Calculation**
+
+   * contextual subgraph analysis
+   * graph centrality computation
+   * semantic importance weight assignment
+   * relevance-based reasoning across connected concepts
+   * importance-aware inference generation
+
+4. **Visualization and Explanation**
+
+   * bilingual human-readable output generation
+   * linkage of concepts with corresponding sutra references
+   * analytics and relationship computation
+   * interactive weighted graph visualization
+   * explainable AI-based literary knowledge presentation
+
 <img width="1131" height="1600" alt="image" src="https://github.com/user-attachments/assets/520b8d04-dea1-4a58-8b49-9fedcc717b23" />
 
 Product screenshots
