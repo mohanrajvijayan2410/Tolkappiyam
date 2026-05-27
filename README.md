@@ -143,7 +143,70 @@ The system architecture is organized into four major layers:
 **Tamil Interface and Localized Visulization**
 <img width="1600" height="778" alt="image" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
 
+##Algorithm
+## Ontology-Based Multi-Hop Knowledge Graph Reasoning Framework
 
+### Input
+- User Query `Q`
+- Textual Source Data `T`
+- Ontology Dataset `O`
+
+### Output
+- Weighted Knowledge Graph `G'w`
+- Generated Explanation `Ex`
+
+---
+
+## Algorithm Workflow
+
+### 1. Load Semantic Data
+- Load structured ontology and graph data derived from `T` and `O`.
+
+### 2. Preprocess Query
+- Accept Tamil or English query `Q`
+- Remove stop words
+- Normalize query terms
+- Identify the query domain
+- Convert processed query into canonical form `Qc`
+
+### 3. Graph Construction and Subgraph Extraction
+- Construct or access knowledge graph `G = (V, E)`
+- Extract contextual subgraph `G' = (V', E')`
+- Use BFS or multi-hop traversal from mapped concept `c*`
+
+### 4. Ontology Mapping
+- Map `Qc` to ontology concept `c*`
+- Retrieve related concepts and semantic relationships
+
+### 5. Intent-Aware Reasoning
+- Detect query intent
+- Select the most relevant semantic paths
+- Traverse direct and indirect concept relationships
+
+### 6. Cognitive Weightage Computation
+- Compute node degree centrality:
+
+  `DC(v) = deg(v) / (|V| - 1)`
+
+- Assign semantic weight:
+
+  `W(v) = DC(v)`
+
+- Construct weighted graph:
+
+  `G'w = (V', E', W)`
+
+### 7. Explanation and Output Generation
+- Retrieve sutra references associated with graph nodes and edges
+- Generate bilingual human-readable explanation `Ex`
+- Compute graph analytics:
+  - node distribution
+  - relationship density
+  - semantic connectivity
+
+### 8. Final Output
+- Return weighted graph `G'w`
+- Return generated explanation `Ex`
 
 
 ## Features
