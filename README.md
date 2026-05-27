@@ -18,7 +18,7 @@ The project combines a Flask backend, a dataset-driven ontology layer, D3.js gra
 ## Dataset Link
 [(Dataset)](https://drive.google.com/drive/folders/1zPSoReURy3DO0fHqU3b58fpxxAkOqLxF?usp=drive_link)
 
-## Sample Video 
+## Sample Video
 [Click here to watch the demo](video/demo.mp4)
 ## Installation & Setup
 
