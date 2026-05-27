@@ -1,4 +1,4 @@
-# Tolkappiyam AI: An Intelligent Classical Tamil Knowledge Agent
+<img width="1110" height="860" alt="image" src="https://github.com/user-attachments/assets/046cc7a1-fafa-40a6-b3e9-5c0ae92aa3bb" /># Tolkappiyam AI: An Intelligent Classical Tamil Knowledge Agent
 
 Hosted Link: https://tholkapiyam2026.pythonanywhere.com/
 
@@ -94,6 +94,46 @@ Example response shape:
   "explanation": "English Explanation: ... Tamil Explanation: ..."
 }
 ```
+Architecture
+Architecture Workflow
+
+The proposed architecture follows a four-layer workflow for AI-driven literary knowledge exploration:
+
+**Graph Processing and Subgraph Extraction Layer**
+  Preprocesses the user queries.
+  Identifies important domain concepts from the input.
+  Converts concepts into a canonical (standardized) form.
+  Maps the extracted concepts to structured semantic data stored in CSV format.
+  Extracts relevant subgraphs from the knowledge base.
+**Ontology Mapping and Reasoning Layer**
+  Performs natural language understanding of the query.
+  Detects user intent and semantic meaning.
+  Aligns concepts with the ontology structure.
+  Traverses the knowledge graph to identify the most relevant concept paths and relationships.
+**Cognitive Reasoning and Weightage Calculation Layer**
+  Extracts contextual subgraphs related to the query.
+  Computes graph centrality measures to determine concept importance.
+  Assigns semantic weights to nodes and relationships.
+  Supports importance-aware reasoning for accurate knowledge interpretation.
+**Visualization and Explanation Layer**
+  Converts the weighted graph into bilingual human-readable output.
+  Links concepts and relationships with corresponding sutra references.
+  Computes analytical insights and summaries.
+  Renders the final interactive graph-based visualization interface.
+<img width="1131" height="1600" alt="image" src="https://github.com/user-attachments/assets/520b8d04-dea1-4a58-8b49-9fedcc717b23" />
+
+Product screenshots
+   Main Knowledge graph Dashboard
+   <img width="1600" height="743" alt="image" src="https://github.com/user-attachments/assets/1b5d96af-35b3-4962-ae00-d51e8002a7f9" />
+ Concept Detail and Source Trace Window
+ <img width="1110" height="860" alt="image" src="https://github.com/user-attachments/assets/a3c285df-9589-40de-a1ab-8257b6546d28" />
+ Cognitive Architecture Analysis Window
+ <img width="1600" height="786" alt="image" src="https://github.com/user-attachments/assets/fa88be6d-03e3-483c-94ec-4c2be55c2769" />
+Tamil Interface and Localized Visulization
+<img width="1600" height="778" alt="image" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
+
+
+
 
 ## Features
 
