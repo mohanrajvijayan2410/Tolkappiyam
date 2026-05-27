@@ -143,7 +143,7 @@ The system architecture is organized into four major layers:
 **Tamil Interface and Localized Visulization**
 <img width="1600" height="778" alt="image" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
 
-##Algorithm
+## Algorithm
 ## Ontology-Based Multi-Hop Knowledge Graph Reasoning Framework
 
 ### Input
