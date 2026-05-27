@@ -132,17 +132,45 @@ The system architecture is organized into four major layers:
 
 <img width="1131" height="1600" alt="image" src="https://github.com/user-attachments/assets/520b8d04-dea1-4a58-8b49-9fedcc717b23" />
 
-## Product screenshots
+# Product Screenshots
 
-   ### Main Knowledge graph Dashboard
-   <img width="1600" height="743" alt="image" src="https://github.com/user-attachments/assets/1b5d96af-35b3-4962-ae00-d51e8002a7f9" />
- ### Concept Detail and Source Trace Window
- <img width="1110" height="860" alt="image" src="https://github.com/user-attachments/assets/a3c285df-9589-40de-a1ab-8257b6546d28" />
-### Cognitive Architecture Analysis Window
- <img width="1600" height="786" alt="image" src="https://github.com/user-attachments/assets/fa88be6d-03e3-483c-94ec-4c2be55c2769" />
-### Tamil Interface and Localized Visulization
-<img width="1600" height="778" alt="image" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
+## 1. Main Knowledge Graph Dashboard
 
+The primary dashboard visualizes interconnected literary concepts, semantic relationships, ontology mappings, and multi-hop graph traversal results for intelligent knowledge exploration.
+
+<p align="center">
+  <img width="1600" height="743" alt="Main Knowledge Graph Dashboard" src="https://github.com/user-attachments/assets/1b5d96af-35b3-4962-ae00-d51e8002a7f9" />
+</p>
+
+---
+
+## 2. Concept Detail and Source Trace Window
+
+This module displays detailed concept-level analysis, semantic associations, source tracing, and linked sutra references extracted from the ontology-based knowledge graph.
+
+<p align="center">
+  <img width="1110" height="860" alt="Concept Detail and Source Trace Window" src="https://github.com/user-attachments/assets/a3c285df-9589-40de-a1ab-8257b6546d28" />
+</p>
+
+---
+
+## 3. Cognitive Architecture Analysis Window
+
+The cognitive reasoning interface performs semantic weight calculation, graph analytics, node importance evaluation, and contextual reasoning visualization.
+
+<p align="center">
+  <img width="1600" height="786" alt="Cognitive Architecture Analysis Window" src="https://github.com/user-attachments/assets/fa88be6d-03e3-483c-94ec-4c2be55c2769" />
+</p>
+
+---
+
+## 4. Tamil Interface and Localized Visualization
+
+The bilingual visualization interface provides Tamil-centric literary knowledge representation with localized semantic exploration and explainable AI outputs.
+
+<p align="center">
+  <img width="1600" height="778" alt="Tamil Interface and Localized Visualization" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
+</p>
 ## Algorithm
 ## Ontology-Based Multi-Hop Knowledge Graph Reasoning Framework
 
