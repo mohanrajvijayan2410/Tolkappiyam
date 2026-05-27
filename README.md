@@ -98,23 +98,23 @@ Example response shape:
 
 The proposed architecture follows a four-layer workflow for AI-driven literary knowledge exploration:
 
-**Graph Processing and Subgraph Extraction Layer**
+1.**Graph Processing and Subgraph Extraction Layer**
   -Preprocesses the user queries.
   -Identifies important domain concepts from the input.
   -Converts concepts into a canonical (standardized) form.
- - Maps the extracted concepts to structured semantic data stored in CSV format.
+  -Maps the extracted concepts to structured semantic data stored in CSV format.
   -Extracts relevant subgraphs from the knowledge base.
-**Ontology Mapping and Reasoning Layer**
+2.**Ontology Mapping and Reasoning Layer**
   -Performs natural language understanding of the query.
   -Detects user intent and semantic meaning.
   -Aligns concepts with the ontology structure.
   -Traverses the knowledge graph to identify the most relevant concept paths and relationships.
-**Cognitive Reasoning and Weightage Calculation Layer**
+3.**Cognitive Reasoning and Weightage Calculation Layer**
   -Extracts contextual subgraphs related to the query.
   -Computes graph centrality measures to determine concept importance.
   -Assigns semantic weights to nodes and relationships.
   -Supports importance-aware reasoning for accurate knowledge interpretation.
-**Visualization and Explanation Layer**
+4.**Visualization and Explanation Layer**
   -Converts the weighted graph into bilingual human-readable output.
   -Links concepts and relationships with corresponding sutra references.
   -Computes analytical insights and summaries.
