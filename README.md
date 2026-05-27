@@ -6,6 +6,21 @@ Tolkappiyam AI is an AI-assisted knowledge exploration platform built around the
 
 The project combines a Flask backend, a dataset-driven ontology layer, D3.js graph visualization, and LLM-backed reasoning through Gemini and Groq. It is designed as a full-stack showcase of AI-assisted knowledge retrieval for Classical Tamil studies.
 
+# Dataset
+
+- **Dataset Type**: Structured Semantic Literary Knowledge Base  
+- **Source**: English translation of *Tolkappiyam* with validated Tamil references  
+- **Core Domains**: Ezhuthu, Sol, Porul, Akam, and Puram  
+- **Knowledge Model**: Ontology and Knowledge Graph based semantic representation  
+- **Features Included**: Concepts, semantic relationships, sutra references, aliases, and bilingual labels  
+- **Purpose**: Supports semantic reasoning, graph traversal, explainable AI retrieval, and bilingual literary knowledge exploration  
+
+## Dataset Link
+[[Google Drive Dataset](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1zPSoReURy3DO0fHqU3b58fpxxAkOqLxF?usp=drive_link)
+
+##Sample Video 
+[[Google Drive Dataset](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1t-jmlWpQ_okJqn1-IDX2GLl5iIU-TYr3?usp=drive_link)
+
 ## Installation & Setup
 
 ### Pre-requisites
@@ -171,19 +186,6 @@ The bilingual visualization interface provides Tamil-centric literary knowledge 
 <p align="center">
   <img width="1600" height="778" alt="Tamil Interface and Localized Visualization" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
 </p>
----
-## Algorithm
-## Ontology-Based Multi-Hop Knowledge Graph Reasoning Framework
-
-### Input
-- User Query `Q`
-- Textual Source Data `T`
-- Ontology Dataset `O`
-
-### Output
-- Weighted Knowledge Graph `G'w`
-- Generated Explanation `Ex`
-
 ---
 
 ## Algorithm Workflow
@@ -382,6 +384,7 @@ Unlike traditional keyword-based retrieval systems, the proposed framework prese
 |-- requirements.txt
 `-- README.md
 ```
+
 
 ## How It Works
 
