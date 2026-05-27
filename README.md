@@ -469,10 +469,6 @@ Exports the current graph, explanation, and cognitive summary as a PDF report.
 
 ## Deployment
 
-The live application is available at:
-
-https://tholkapiyam2026.pythonanywhere.com/
-
 This project can be deployed on platforms such as:
 
 - PythonAnywhere
