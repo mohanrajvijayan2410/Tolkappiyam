@@ -16,10 +16,10 @@ The project combines a Flask backend, a dataset-driven ontology layer, D3.js gra
 - **Purpose**: Supports semantic reasoning, graph traversal, explainable AI retrieval, and bilingual literary knowledge exploration  
 
 ## Dataset Link
-[[Google Drive Dataset](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1zPSoReURy3DO0fHqU3b58fpxxAkOqLxF?usp=drive_link)
+[](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1zPSoReURy3DO0fHqU3b58fpxxAkOqLxF?usp=drive_link)
 
-##Sample Video 
-[[Google Drive Dataset](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1t-jmlWpQ_okJqn1-IDX2GLl5iIU-TYr3?usp=drive_link)
+## Sample Video 
+[](YOUR_GOOGLE_DRIVE_LINK)](https://drive.google.com/drive/folders/1t-jmlWpQ_okJqn1-IDX2GLl5iIU-TYr3?usp=drive_link)
 
 ## Installation & Setup
 
