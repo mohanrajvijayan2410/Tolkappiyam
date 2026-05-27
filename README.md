@@ -1,4 +1,4 @@
-<img width="3867" height="1795" alt="image" src="https://github.com/user-attachments/assets/0d6363f9-8ddd-4a0f-a3cd-cd434f6b9534" /><img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b3b99135-9a14-4e4c-a96b-7174465f06c4" />Tolkappiyam AI: An Intelligent Classical Tamil Knowledge Agent
+Tolkappiyam AI: An Intelligent Classical Tamil Knowledge Agent
 
 Hosted Link: https://tholkapiyam2026.pythonanywhere.com/
 
