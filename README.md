@@ -171,6 +171,7 @@ The bilingual visualization interface provides Tamil-centric literary knowledge 
 <p align="center">
   <img width="1600" height="778" alt="Tamil Interface and Localized Visualization" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
 </p>
+---
 ## Algorithm
 ## Ontology-Based Multi-Hop Knowledge Graph Reasoning Framework
 
