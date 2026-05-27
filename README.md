@@ -134,13 +134,13 @@ The system architecture is organized into four major layers:
 
 ## Product screenshots
 
-   ## Main Knowledge graph Dashboard
+   ### Main Knowledge graph Dashboard
    <img width="1600" height="743" alt="image" src="https://github.com/user-attachments/assets/1b5d96af-35b3-4962-ae00-d51e8002a7f9" />
- ## Concept Detail and Source Trace Window
+ ### Concept Detail and Source Trace Window
  <img width="1110" height="860" alt="image" src="https://github.com/user-attachments/assets/a3c285df-9589-40de-a1ab-8257b6546d28" />
-## Cognitive Architecture Analysis Window
+### Cognitive Architecture Analysis Window
  <img width="1600" height="786" alt="image" src="https://github.com/user-attachments/assets/fa88be6d-03e3-483c-94ec-4c2be55c2769" />
-## Tamil Interface and Localized Visulization
+### Tamil Interface and Localized Visulization
 <img width="1600" height="778" alt="image" src="https://github.com/user-attachments/assets/999d1c4c-ca59-45d5-9f79-06df900dd704" />
 
 ## Algorithm
