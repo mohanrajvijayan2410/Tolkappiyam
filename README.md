@@ -132,7 +132,8 @@ The system architecture is organized into four major layers:
 
 <img width="1131" height="1600" alt="image" src="https://github.com/user-attachments/assets/520b8d04-dea1-4a58-8b49-9fedcc717b23" />
 
-Product screenshots
+**Product screenshots**
+
    **Main Knowledge graph Dashboard**
    <img width="1600" height="743" alt="image" src="https://github.com/user-attachments/assets/1b5d96af-35b3-4962-ae00-d51e8002a7f9" />
  **Concept Detail and Source Trace Window**
