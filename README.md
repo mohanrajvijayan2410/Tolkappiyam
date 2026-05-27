@@ -276,12 +276,8 @@ Minor response variations occur due to differences in semantic complexity and tr
 
 # Query Response Time Distribution
 
-> Add the response time graph image below
-
-```md
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/481a6bbf-0632-4c73-a3ca-720f03ed3b66" />
 
-```
 
 ---
 
@@ -317,12 +313,9 @@ The ontology-driven framework consistently outperforms traditional approaches du
 
 # Core Metric Comparison Graph
 
-> Add the comparative analysis graph below
 
-```md
 <img width="3867" height="1795" alt="image" src="https://github.com/user-attachments/assets/b3f93fc5-f4a7-484b-b80b-8382d0bda59f" />
 
-```
 
 ---
 
@@ -352,13 +345,7 @@ Unlike traditional keyword-based retrieval systems, the proposed framework prese
 
 ---
 
-# Workflow Visualization
 
-> Add the workflow architecture image below
-
-```md
-<img src="YOUR_IMAGE_PATH" alt="Knowledge Graph Reasoning Workflow" width="1000"/>
-```
 
 ## Project Structure
 
